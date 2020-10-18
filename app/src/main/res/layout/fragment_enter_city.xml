@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.android.weatherapp.entercity.EnterCityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="22dp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintBottom_toTopOf="@id/enterCityEditText"
+            app:layout_constraintEnd_toEndOf="@id/enterButtonParent"
+            app:layout_constraintStart_toStartOf="@id/enterCityEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/enterCityEditText"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/rounded_start_white"
+            android:hint="@string/enterCityLabelEnterName"
+            android:inputType="textCapWords"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/citySearchText"
+            android:textColorHint="@color/citySearchText"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/viewHistoryButton"
+            app:layout_constraintEnd_toStartOf="@id/enterButtonParent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoImageView"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="Autofill" />
+
+        <FrameLayout
+            android:id="@+id/enterButtonParent"
+            android:layout_width="78dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_end_white"
+            android:onClick="@{view -> viewModel.onCityEnteredClick(enterCityEditText.getText().toString())}"
+            app:layout_constraintBottom_toBottomOf="@id/enterCityEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/enterCityEditText"
+            app:layout_constraintTop_toTopOf="@id/enterCityEditText">
+
+            <ImageView
+                android:id="@+id/enterButton"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="4dp"
+                android:src="@drawable/ic_arrow"
+                app:tint="@color/jungleGreen"
+                tools:ignore="ContentDescription" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/viewHistoryButton"
+            android:layout_width="196dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/rounded"
+            android:gravity="center"
+            android:onClick="@{view -> viewModel.onViewHistoryClick()}"
+            android:text="@string/enterCityLabelViewHistory"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:translationZ="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/logoImageView"
+            app:layout_constraintStart_toStartOf="@+id/logoImageView"
+            app:layout_constraintTop_toBottomOf="@id/enterCityEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

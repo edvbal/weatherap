@@ -1,0 +1,16 @@
+ext {
+    minSdk = 23
+    buildSdk = 30
+    targetSdk = 30
+    appVersionCode = 1
+    appVersionName = '1'
+
+    hiltAndroidVersion = "2.28-alpha"
+    hiltVersion = "1.0.0-alpha02"
+    mockitoKtVersion = "2.2.0"
+    retrofitVersion = '2.9.0'
+    mockitoVersion = "3.3.3"
+    glideVersion = "4.10.0"
+    roomVersion = "2.2.5"
+    navVersion = "2.3.1"
+}

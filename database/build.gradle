@@ -1,0 +1,12 @@
+apply from: '../android.gradle'
+apply from: '../versions.gradle'
+apply from: "../core-dependencies.gradle"
+
+dependencies {
+
+    implementation project(':usecase')
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+}

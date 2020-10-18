@@ -1,0 +1,5 @@
+include ':usecase'
+include ':api'
+include ':app'
+include ':database'
+rootProject.name = "WeatherApp"
